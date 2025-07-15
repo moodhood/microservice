@@ -33,7 +33,7 @@ public class PatientRequestDTO {
         this.name = name;
     }
 
-    public LocalDate getRegisteredDate() {
+    public CharSequence getRegisteredDate() {
         return registeredDate;
     }
 
@@ -41,7 +41,7 @@ public class PatientRequestDTO {
         this.registeredDate = registeredDate;
     }
 
-    public LocalDate getBirthDate() {
+    public CharSequence getBirthDate() {
         return birthDate;
     }
 
