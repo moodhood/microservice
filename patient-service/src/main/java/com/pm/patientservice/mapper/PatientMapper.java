@@ -3,6 +3,7 @@ package com.pm.patientservice.mapper;
 import com.pm.patientservice.dto.PatientRequestDTO;
 import com.pm.patientservice.dto.PatientResponseDTO;
 import com.pm.patientservice.model.Patient;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 
@@ -24,8 +25,8 @@ public class PatientMapper {
         patient.setName(patientRequestDTO.getName());
         patient.setAddress(patientRequestDTO.getAddress());
         patient.setEmail(patientRequestDTO.getEmail());
-        patient.setDateOfBirth(patientRequestDTO.getDateOfBirth());
-        patient.setRegisterDate(patientRequestDTO.getRegisteredDate());
+        patient.setDateOfBirth(LocalDate.parse(patientRequestDTO.getDateOfBirth()));
+        patient.setRegisterDate(LocalDate.parse(patientRequestDTO.getRegisteredDate()));
 
         return patient;
     }

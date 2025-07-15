@@ -1,13 +1,12 @@
 ### PUT request to update an existing patient entity
-PUT http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+PUT http://localhost:4000/patients/223e4567-e89b-12d3-a456-426614174012
 Content-Type: application/json
 
 {
-  "name": "John POPYYYY",
-  "email": "isabella.walker@exaple.com",
-  "address": "123 John Doe st",
-  "dateOfBirth": "1999-09-09",
-  "registeredDate": "2025-07-15"
+  "name": "Sophia C",
+  "email": "sophia.clark@example.com",
+  "address": "123 Hickory St, Shelbyville",
+  "dateOfBirth": "1991-12-25"
 }
 
 ###
