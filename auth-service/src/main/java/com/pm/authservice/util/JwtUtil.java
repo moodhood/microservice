@@ -1,16 +1,20 @@
 package com.pm.authservice.util;
 
 
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.security.SignatureException;
 import java.util.Base64;
 import java.util.Date;
 
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Component;
+
+import javax.crypto.SecretKey;
 
 @Component
 public class JwtUtil {
@@ -27,5 +31,15 @@ public class JwtUtil {
                 .expiration((new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))) // 10 hours
                 .signWith(secretKey)
                 .compact();
+    }
+
+    public void validateToken(String token) {
+        try {
+            Jwts.parser().verifyWith((SecretKey) secretKey)
+                    .build()
+                    .parseSignedClaims(token);
+        } catch (JwtException e) {
+            throw new JwtException("Invalid JWT");
+        }
     }
 }
