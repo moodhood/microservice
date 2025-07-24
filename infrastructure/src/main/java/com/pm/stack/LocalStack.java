@@ -121,7 +121,7 @@ public class LocalStack extends Stack {
                                 .version(PostgresEngineVersion.VER_17_2)
                                 .build()))
                 .vpc(vpc)
-                .instanceType(InstanceType.of(InstanceClass.BURSTABLE2, InstanceSize.MICRO)) // This is where you specify the compute power
+                .instanceType(InstanceType.of(InstanceClass.BURSTABLE2, InstanceSize.MICRO))
                 .allocatedStorage(20)
                 .credentials(Credentials.fromGeneratedSecret("admin_user"))
                 .databaseName(dbName)
@@ -145,9 +145,9 @@ public class LocalStack extends Stack {
         return CfnCluster.Builder.create(this, "MskCluster")
                 .clusterName("kafa-cluster")
                 .kafkaVersion("2.8.0")
-                .numberOfBrokerNodes(1)
+                .numberOfBrokerNodes(2)
                 .brokerNodeGroupInfo(CfnCluster.BrokerNodeGroupInfoProperty.builder()
-                        .instanceType("kafka.m3.small")
+                        .instanceType("kafka.m5.xlarge")
                         .clientSubnets(vpc.getPrivateSubnets().stream()
                                 .map(ISubnet::getSubnetId)
                                 .collect(Collectors.toList()))
@@ -202,7 +202,7 @@ public class LocalStack extends Stack {
         if(additionalEnvVars != null){
             envVars.putAll(additionalEnvVars);
         }
-//
+
         if(db != null){
             envVars.put("SPRING_DATASOURCE_URL", "jdbc:postgresql://%s:%s/%s-db".formatted(
                     db.getDbInstanceEndpointAddress(),

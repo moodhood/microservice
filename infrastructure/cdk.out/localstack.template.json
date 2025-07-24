@@ -656,11 +656,11 @@
        "Ref": "PatientManagementVPCPrivateSubnet2Subnet8A2E409C"
       }
      ],
-     "InstanceType": "kafka.m3.small"
+     "InstanceType": "kafka.m5.xlarge"
     },
     "ClusterName": "kafa-cluster",
     "KafkaVersion": "2.8.0",
-    "NumberOfBrokerNodes": 1
+    "NumberOfBrokerNodes": 2
    }
   },
   "PatientManagementCluster98E10F8D": {
