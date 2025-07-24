@@ -4,8 +4,8 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "Ben Created LocalStack",
-  "email": "Local@Benjamin.com",
+  "name": "Ben LocalStack",
+  "email": "Local@jamin.com",
   "address": "123 Hoppa",
   "dateOfBirth": "2000-09-09",
   "registeredDate": "2024-01-01"
